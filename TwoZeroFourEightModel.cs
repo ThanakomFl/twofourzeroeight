@@ -11,6 +11,8 @@ namespace twozerofoureight
         protected int boardSize; // default is 4
         protected int[,] board;
         protected Random rand;
+        public int score = 0;
+        protected int isOver = 0;
 
         public TwoZeroFourEightModel() : this(4)
         {
@@ -20,6 +22,11 @@ namespace twozerofoureight
         public int[,] GetBoard()
         {
             return board;
+        }
+
+        public int GetScore()
+        {
+            return score;
         }
 
         public TwoZeroFourEightModel(int size)
@@ -37,8 +44,10 @@ namespace twozerofoureight
             NotifyAll();
         }
 
+  
         private int[,] Random(int[,] input)
         {
+            int count = 0;
             while (true)
             {
                 int x = rand.Next(boardSize);
@@ -48,6 +57,8 @@ namespace twozerofoureight
                     board[x, y] = 2;
                     break;
                 }
+                count++;
+                if (count > 15) break;
             }
             return input;
         }
@@ -82,6 +93,8 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
+                        Console.WriteLine(score);
                         buffer[j] = 0;
                     }
                 }
@@ -109,7 +122,6 @@ namespace twozerofoureight
         {
             int[] buffer;
             int pos;
-
             int[] range = Enumerable.Range(0, boardSize).ToArray();
             foreach (int i in range)
             {
@@ -134,6 +146,8 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
+                        Console.WriteLine(score);
                         buffer[j] = 0;
                     }
                 }
@@ -161,7 +175,6 @@ namespace twozerofoureight
         {
             int[] buffer;
             int pos;
-
             int[] rangeX = Enumerable.Range(0, boardSize).ToArray();
             int[] rangeY = Enumerable.Range(0, boardSize).ToArray();
             Array.Reverse(rangeX);
@@ -188,6 +201,8 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
+                        Console.WriteLine(score);
                         buffer[j] = 0;
                     }
                 }
@@ -239,6 +254,9 @@ namespace twozerofoureight
                     if (j > 0 && buffer[j] != 0 && buffer[j] == buffer[j - 1])
                     {
                         buffer[j - 1] *= 2;
+                        score += buffer[j - 1];
+
+                        Console.WriteLine(score);
                         buffer[j] = 0;
                     }
                 }

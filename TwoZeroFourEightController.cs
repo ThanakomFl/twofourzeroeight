@@ -15,7 +15,7 @@ namespace twozerofoureight
 
         public TwoZeroFourEightController()
         {
-
+            
         }
 
         public override void ActionPerformed(int action)
@@ -26,6 +26,7 @@ namespace twozerofoureight
                 {
                     case LEFT:
                         m.PerformLeft();
+
                         break; 
                     case RIGHT:
                         m.PerformRight();

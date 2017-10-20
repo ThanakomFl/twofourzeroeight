@@ -28,6 +28,8 @@ namespace twozerofoureight
         public void Notify(Model m)
         {
             UpdateBoard(((TwoZeroFourEightModel) m).GetBoard());
+            UpdateScore(((TwoZeroFourEightModel)m).GetScore());
+            UpdateGameOver(((TwoZeroFourEightModel)m).GetBoard());
         }
 
         private void UpdateTile(Label l, int i)
@@ -44,6 +46,7 @@ namespace twozerofoureight
                     l.BackColor = Color.Gray;
                     break;
                 case 2:
+                   
                     l.BackColor = Color.DarkGray;
                     break;
                 case 4:
@@ -77,6 +80,57 @@ namespace twozerofoureight
             UpdateTile(lbl33,board[3, 3]);
         }
 
+        private void UpdateScore(int score)
+        {
+            UpdateTile(livescore, score);
+
+        }
+
+        private void UpdateGameOver(int[,] Board)
+        {
+            bool a = true, b = true;
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (Board[i, j] == 0)
+                    {
+                        a = true;
+                        break;
+                    }
+                    else a = false;
+                }
+                if (a)
+                {
+                    label2.Text = " ";
+                    break;
+                }
+                else if (i == 3)
+                {
+                    for (int k = 0; k < 3; k++)
+                    {
+                        for (int q = 0; q < 3; q++)
+                        {
+                            if (Board[k, q] == Board[k, q + 1] || Board[k, q] == Board[k + 1, q])
+                            {
+                                b = true;
+                                break;
+                            }
+                            else b = false;
+                        }
+                        if (Board[k, 3] == Board[k + 1, 3]) b = true;
+                        if (b) break;
+                    }
+                    if (b) label2.Text = "Full";
+                    else
+                    {
+                        label2.Text = "over";
+                        label3.Visible = true;
+                    }
+                }
+            }
+        }
+
         private void btnLeft_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.LEFT);
@@ -95,6 +149,30 @@ namespace twozerofoureight
         private void btnDown_Click(object sender, EventArgs e)
         {
             controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+        }
+
+        private void TZFE_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A || e.KeyCode == Keys.Left)
+            {
+                Console.WriteLine("left");
+                controller.ActionPerformed(TwoZeroFourEightController.LEFT);
+            }
+            else if (e.KeyCode == Keys.W || e.KeyCode == Keys.Up)
+            {
+                Console.WriteLine("top");
+                controller.ActionPerformed(TwoZeroFourEightController.UP);
+            }
+            else if (e.KeyCode == Keys.D || e.KeyCode == Keys.Right)
+            {
+                Console.WriteLine("right");
+                controller.ActionPerformed(TwoZeroFourEightController.RIGHT);
+            }
+            else if (e.KeyCode == Keys.S || e.KeyCode == Keys.Down)
+            {
+                Console.WriteLine("bottom");
+                controller.ActionPerformed(TwoZeroFourEightController.DOWN);
+            }
         }
 
     }
