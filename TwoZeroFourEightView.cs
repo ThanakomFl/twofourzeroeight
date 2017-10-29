@@ -175,5 +175,39 @@ namespace twozerofoureight
             }
         }
 
+        private void lbl03_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void livescore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl02_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl01_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

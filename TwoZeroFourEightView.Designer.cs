@@ -81,6 +81,7 @@
             this.lbl01.TabIndex = 1;
             this.lbl01.Text = "0";
             this.lbl01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl01.Click += new System.EventHandler(this.lbl01_Click);
             // 
             // lbl02
             // 
@@ -95,6 +96,7 @@
             this.lbl02.TabIndex = 2;
             this.lbl02.Text = "0";
             this.lbl02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl02.Click += new System.EventHandler(this.lbl02_Click);
             // 
             // lbl03
             // 
@@ -110,6 +112,7 @@
             this.lbl03.TabIndex = 3;
             this.lbl03.Text = "0";
             this.lbl03.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl03.Click += new System.EventHandler(this.lbl03_Click);
             // 
             // lbl13
             // 
@@ -292,6 +295,7 @@
             this.livescore.TabIndex = 21;
             this.livescore.Text = "0";
             this.livescore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.livescore.Click += new System.EventHandler(this.livescore_Click);
             // 
             // label2
             // 
@@ -306,6 +310,7 @@
             this.label2.TabIndex = 22;
             this.label2.Text = "0";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -318,6 +323,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(323, 320);
             this.label1.TabIndex = 23;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label3
             // 
